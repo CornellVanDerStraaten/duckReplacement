@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this bij enkele knoppen</title>
+    <link href="css.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h1>Klik op elk van deze knoppen!</h1>
+    <button class="button">Laat</button> <br>
+    <button class="button">dit</button> <br>
+    <button class="button">zien,</button> <br>
+    <button class="button">alstublieft.</button>
+    <button onclick="erase()">ERASE</button>
+    <div id="enterHere"></div>
+    
+    <script>
+        const allButtons = document.getElementsByClassName('button');
+        const enterHereDiv = document.getElementById('enterHere');
+
+        verwerkKnopKlik = function(e) {
+            e.preventDefault();
+            enterHereDiv.innerHTML += this.innerHTML + " ";
+        }
+
+        function erase() {
+            enterHereDiv.innerHTML = "";
+        }
+
+        for(let i=0; i<allButtons.length; i++) {
+            allButtons[i].addEventListener('click', verwerkKnopKlik);
+        }
+    </script>
+</body>
+</html>
